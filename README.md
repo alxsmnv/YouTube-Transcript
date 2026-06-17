@@ -15,8 +15,8 @@ A blazing-fast, single-binary Go tool to extract transcripts from YouTube videos
 ## Why This Tool?
 
 Most YouTube transcript tools are bloated with dependencies:
-- Node.js + npm packages (500MB+ of bullshit)
-- Python with virtualenvs and pip hell
+- Node.js + npm packages (500MB+)
+- Python with virtualenvs and pip
 - Docker containers when you just need a simple binary
 
 This tool is different:
