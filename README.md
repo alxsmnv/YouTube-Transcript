@@ -30,14 +30,24 @@ This tool is different:
 ### From Source (Recommended)
 
 ```bash
-git clone <repository-url>
-cd youtube-transcript
-go build -o youtube-transcript main.go
+git clone https://github.com/alxsmnv/YouTube-Transcript.git
+cd YouTube-Transcript
+go build -o youtube-transcript ./youtube-transcript.go
 ```
 
 ### Pre-built Binaries
 
-Download the latest release for your platform from the [Releases page](https://github.com/yourusername/youtube-transcript/releases).
+Download the latest release for your platform from the [GitHub Releases page](https://github.com/alxsmnv/YouTube-Transcript/releases).
+
+| Platform | Asset |
+| --- | --- |
+| macOS Intel | `youtube-transcript-darwin-amd64.tar.gz` |
+| macOS Apple Silicon | `youtube-transcript-darwin-arm64.tar.gz` |
+| Linux x86_64 | `youtube-transcript-linux-amd64.tar.gz` |
+| Linux ARM64 | `youtube-transcript-linux-arm64.tar.gz` |
+| Windows x86_64 | `youtube-transcript-windows-amd64.zip` |
+
+Verify downloads with the `checksums.txt` file attached to each release.
 
 ## Usage
 
@@ -86,17 +96,28 @@ Each line includes:
 
 ```bash
 # Build for current platform
-go build -o youtube-transcript main.go
+go build -o youtube-transcript ./youtube-transcript.go
 
 # Build for specific platforms (cross-compilation)
-GOOS=linux GOARCH=amd64 go build -o youtube-transcript-linux-amd64 main.go
-GOOS=darwin GOARCH=amd64 go build -o youtube-transcript-darwin-amd64 main.go
-GOOS=windows GOARCH=amd64 go build -o youtube-transcript-windows-amd64.exe main.go
-
-# Build for ARM (Apple Silicon, Raspberry Pi)
-GOOS=darwin GOARCH=arm64 go build -o youtube-transcript-darwin-arm64 main.go
-GOOS=linux GOARCH=arm64 go build -o youtube-transcript-linux-arm64 main.go
+GOOS=linux GOARCH=amd64 go build -o youtube-transcript-linux-amd64 ./youtube-transcript.go
+GOOS=linux GOARCH=arm64 go build -o youtube-transcript-linux-arm64 ./youtube-transcript.go
+GOOS=darwin GOARCH=amd64 go build -o youtube-transcript-darwin-amd64 ./youtube-transcript.go
+GOOS=darwin GOARCH=arm64 go build -o youtube-transcript-darwin-arm64 ./youtube-transcript.go
+GOOS=windows GOARCH=amd64 go build -o youtube-transcript-windows-amd64.exe ./youtube-transcript.go
 ```
+
+## Releases
+
+This repository includes a GitHub Actions release workflow at `.github/workflows/release.yml`.
+
+To publish a new release:
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+The workflow builds Linux, macOS, and Windows binaries, packages them as release assets, and uploads `checksums.txt`.
 
 ## Error Handling
 
