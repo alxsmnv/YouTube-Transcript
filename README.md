@@ -8,7 +8,6 @@ A blazing-fast, single-binary Go tool to extract transcripts from YouTube videos
 - **Cross-Platform**: Compiles on Linux, macOS, Windows, and more
 - **Blazing Fast**: Pure Go implementation, no Node.js, no Python, no bloat
 - **Open Source**: Licensed under GNU GPL v3 - freedom for everyone
-- **Smart Extraction**: Uses YouTube's hidden iOS API endpoint for reliable transcript access
 - **Timestamped Output**: Each line includes `[MM:SS]` timestamps
 - **Language Support**: Auto-detects available languages, falls back gracefully
 
